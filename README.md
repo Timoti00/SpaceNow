@@ -27,7 +27,7 @@ Make sure Composer is installed on your machine:
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/username/repository.git
+git clone https://github.com/Timoti00/SpaceNow.git
 cd repository
 
 # 2. Install dependencies
