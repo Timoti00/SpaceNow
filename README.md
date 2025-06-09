@@ -24,7 +24,7 @@ Make sure Composer is installed on your machine:
     ```
 
 ---
-
+## How to install?
 ```bash
 # 1. Clone the repository
 git clone https://github.com/Timoti00/SpaceNow.git
