@@ -56,3 +56,16 @@ php artisan migrate:fresh --seed
 # 8. Start Laravel development server
 php artisan serve
 ```
+
+## Accounts
+
+Default Account:
+
+-   **Role Admin**  
+    Username: admin@example.com
+    Password: password
+-   **Role User**  
+    Username: user@example.com
+    Password: password
+
+
