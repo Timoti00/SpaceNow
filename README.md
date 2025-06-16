@@ -1,3 +1,46 @@
+# Space Now
+
+**Space Now** is a web-based room reservation system that streamlines the process of booking and managing room availability within a building. The platform supports three main user roles: **Students**, **Lecturers**, and **Admins**.
+
+---
+
+## 🚀 Features
+
+### 👤 Role-Based Access
+- **Admin**
+  - Manage master data: Floors, Rooms, Users.
+  - Map rooms to specific floors for a visual layout.
+  - Approve or reject room booking requests.
+  
+- **Students & Lecturers**
+  - View room layout and availability by floor.
+  - Submit room booking requests.
+  - Wait for admin approval.
+
+### 🛠️ Master Data Management
+Admins have full control over the core data of the application:
+- **Floors** – Define levels in the building.
+- **Rooms** – Assign rooms to floors and manage room information.
+- **Users** – Manage accounts and roles.
+
+### 🗺️ Visual Booking Interface
+- Floor-wise interactive room layout.
+- Easy room selection and booking.
+
+### 🔄 Semi Real-Time Availability
+- Uses **AJAX polling** to keep room availability status up-to-date.
+- Ensures users always see the latest room status without refreshing the page.
+
+## 💡 Technologies Used
+- Laravel (Back-end)
+- AJAX (Real-time updates)
+- Blade (Front-end)
+- MySQL (Database)
+- Template(sb-admin 2)
+  https://startbootstrap.com/theme/sb-admin-2
+
+---
+
 # Laravel Project Installation Guide
 
 ## Prerequisites
@@ -24,7 +67,7 @@ Make sure Composer is installed on your machine:
     ```
 
 ---
-
+## How to install?
 ```bash
 # 1. Clone the repository
 git clone https://github.com/Timoti00/SpaceNow.git
@@ -56,3 +99,16 @@ php artisan migrate:fresh --seed
 # 8. Start Laravel development server
 php artisan serve
 ```
+
+## Accounts
+
+Default Account:
+
+-   **Role Admin**  
+    Username: admin@example.com
+    Password: password
+-   **Role User**  
+    Username: user@example.com
+    Password: password
+
+
