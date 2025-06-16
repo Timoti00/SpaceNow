@@ -70,6 +70,9 @@
                                     @foreach($bookings as $booking)
                                     <tr>
                                         <td>
+                                            <span style="font-weight: bold;">
+                                                [{{ $booking->user->name ?? '-' }}]
+                                            </span>
                                             {{ $booking->booking_code }}
                                             @if($booking->files && $booking->files->count())
                                                 <a href="{{ asset('storage/' . $booking->files->first()->file_path) }}" target="_blank" class="btn btn-link btn-sm">

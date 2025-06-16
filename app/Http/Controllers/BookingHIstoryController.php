@@ -15,8 +15,19 @@ class BookingHIstoryController extends Controller
     {
         $user = Auth::user();
 
-        $bookings = RoomBookings::with('user','files')
-            ->where('user_id', $user->id)
+        $bookings = RoomBookings::with('user', 'files')
+            ->when($user->role === 'admin', function ($query) use ($user) {
+                $query->where(function ($subQuery) use ($user) {
+                    // Untuk semua user, hanya yang approved
+                    $subQuery->where('status', 'approved');
+
+                    // Tapi jika data milik admin sendiri, tampilkan semua status
+                    $subQuery->orWhere('user_id', $user->id);
+                });
+            }, function ($query) use ($user) {
+                // Jika bukan admin, hanya data milik sendiri
+                $query->where('user_id', $user->id);
+            })
             ->orderByRaw("CASE 
                 WHEN status = 'pending' THEN 0 
                 WHEN status = 'approved' THEN 1 
@@ -25,9 +36,7 @@ class BookingHIstoryController extends Controller
             END")
             ->orderBy('created_at', 'asc')
             ->get();
-     
 
-        return view('book_room.history', compact('bookings','user'));
+        return view('book_room.history', compact('bookings', 'user'));
     }
-
 }

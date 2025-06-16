@@ -16,6 +16,7 @@ class ApprovalController extends Controller
         $user = Auth::user();
 
         $bookings = RoomBookings::with('user', 'files')
+            ->where('status', 'pending') // hanya status pending
             ->orderByRaw("CASE 
                             WHEN status = 'pending' THEN 0 
                             WHEN status = 'approved' THEN 1 
@@ -23,7 +24,7 @@ class ApprovalController extends Controller
                             ELSE 3 
                         END")
             ->orderBy('created_at', 'asc')
-            ->latest('id') // sebagai fallback jika ada yang created_at sama
+            ->latest('id') // fallback kalau created_at sama
             ->get();
 
         return view('book_room.approval', compact('bookings', 'user'));
